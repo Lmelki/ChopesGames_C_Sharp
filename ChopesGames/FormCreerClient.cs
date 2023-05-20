@@ -14,7 +14,8 @@ namespace ChopesGames
         private Regex regCodePostal = new Regex("^(([0-8][0-9])|(9[0-5])|(2[ab]))[0-9]{3}$");
         private Regex regAdresse = new Regex("^[a-zA-Z0-9 '-]*?[a-zA-Zéèêëçàâôù ûïî-]+$");
         private Regex regEmail = new Regex(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z");
-        private bool nomEstValide, prenomEstValide, adresseEstValide, villeEstValide, codePostalEstValide, emailEstValide = false; // controle
+        private Regex regMdp = new Regex("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
+        private bool nomEstValide, prenomEstValide, adresseEstValide, villeEstValide, codePostalEstValide, emailEstValide, mdpEstValide = false; // controle
 
         public FormCreerClient()
         {
@@ -32,15 +33,17 @@ namespace ChopesGames
                 {
                     string requête;
                     maCnx.Open(); // on se connecte
-                    requête = "INSERT INTO Client (NOM,PRENOM,ADRESSE,VILLE, CODEPOSTAL, EMAIL) values (@nom,@prenom,@adresse,@ville,@codePostal,@email)";
+                    requête = "INSERT INTO Client (NOM,PRENOM,ADRESSE,VILLE, CODEPOSTAL, EMAIL, MOTDEPASSE) values (@nom,@prenom,@adresse,@ville,@codePostal,@email,@motdepasse)";
                     var maCde = new MySqlCommand(requête, maCnx);
-                    maCde.Prepare();
+                    //maCde.Prepare();
                     maCde.Parameters.AddWithValue("@nom", tbxNom.Text);
                     maCde.Parameters.AddWithValue("@prenom", tbxPrenom.Text);
                     maCde.Parameters.AddWithValue("@adresse", tbxAdresse.Text);
                     maCde.Parameters.AddWithValue("@ville", tbxVille.Text);
                     maCde.Parameters.AddWithValue("@codePostal", tbxCodePostal.Text);
                     maCde.Parameters.AddWithValue("@email", tbxEmail.Text.ToString());
+                    maCde.Parameters.AddWithValue("@motdepasse", tbxMdp.Text);
+
                     int nbLigneAffectées;
                     nbLigneAffectées = maCde.ExecuteNonQuery();
                     MessageBox.Show(nbLigneAffectées.ToString() + " client(s) créé(s)!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -50,6 +53,8 @@ namespace ChopesGames
                     tbxCodePostal.Clear();
                     tbxVille.Clear();
                     tbxEmail.Clear();
+                    tbxMdp.Clear();
+
                 }
                 catch (MySqlException erreur)
                 {
@@ -153,6 +158,21 @@ namespace ChopesGames
                 emailEstValide = false;
             }
         }
+        private void tbxMdp_Leave(object sender, EventArgs e)
+        {
+            if (regMdp.Match(tbxMdp.Text).Success & tbxMdp.Text != "")
+            {
+                tbxMdp.BackColor = SystemColors.Window;
+                mdpEstValide = true;
+            }
+            else
+            {
+                tbxMdp.BackColor = Color.Red;
+                mdpEstValide = false;
+            }
+        }
+
+
 
         /* Dans les méthodes qui suivent on vide les zones de saisie de exemple
          * et on passe la couleur de la police à noire pour plus de lisibilité
@@ -166,6 +186,14 @@ namespace ChopesGames
             }
         }
 
+        private void tbxMdp_Enter(object sender, EventArgs e)
+        {
+            if (tbxMdp.Text == "")
+            {
+                tbxMdp.Text = null;
+                tbxMdp.ForeColor = Color.Black;
+            }
+        }
 
         private void tbxPrenom_Enter(object sender, EventArgs e)
         {

@@ -42,67 +42,76 @@
             this.tbxCodePostal = new System.Windows.Forms.TextBox();
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.lblAvertissement = new System.Windows.Forms.Label();
+            this.lblMdp = new System.Windows.Forms.Label();
+            this.tbxMdp = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(31, 27);
+            this.lblNom.Location = new System.Drawing.Point(41, 33);
+            this.lblNom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(29, 13);
+            this.lblNom.Size = new System.Drawing.Size(36, 16);
             this.lblNom.TabIndex = 0;
             this.lblNom.Text = "Nom";
             // 
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(31, 60);
+            this.lblPrenom.Location = new System.Drawing.Point(41, 74);
+            this.lblPrenom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(43, 13);
+            this.lblPrenom.Size = new System.Drawing.Size(54, 16);
             this.lblPrenom.TabIndex = 1;
             this.lblPrenom.Text = "Prenom";
             // 
             // lblAdresse
             // 
             this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Location = new System.Drawing.Point(31, 90);
+            this.lblAdresse.Location = new System.Drawing.Point(41, 111);
+            this.lblAdresse.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAdresse.Name = "lblAdresse";
-            this.lblAdresse.Size = new System.Drawing.Size(45, 13);
+            this.lblAdresse.Size = new System.Drawing.Size(58, 16);
             this.lblAdresse.TabIndex = 2;
             this.lblAdresse.Text = "Adresse";
             // 
             // lblVille
             // 
             this.lblVille.AutoSize = true;
-            this.lblVille.Location = new System.Drawing.Point(34, 121);
+            this.lblVille.Location = new System.Drawing.Point(45, 149);
+            this.lblVille.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVille.Name = "lblVille";
-            this.lblVille.Size = new System.Drawing.Size(26, 13);
+            this.lblVille.Size = new System.Drawing.Size(33, 16);
             this.lblVille.TabIndex = 3;
             this.lblVille.Text = "Ville";
             // 
             // lblCodePostal
             // 
             this.lblCodePostal.AutoSize = true;
-            this.lblCodePostal.Location = new System.Drawing.Point(34, 151);
+            this.lblCodePostal.Location = new System.Drawing.Point(45, 186);
+            this.lblCodePostal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodePostal.Name = "lblCodePostal";
-            this.lblCodePostal.Size = new System.Drawing.Size(64, 13);
+            this.lblCodePostal.Size = new System.Drawing.Size(81, 16);
             this.lblCodePostal.TabIndex = 4;
             this.lblCodePostal.Text = "Code Postal";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(34, 184);
+            this.lblEmail.Location = new System.Drawing.Point(45, 226);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.Size = new System.Drawing.Size(41, 16);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email";
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(247, 229);
+            this.btnCreer.Location = new System.Drawing.Point(328, 303);
+            this.btnCreer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCreer.Name = "btnCreer";
-            this.btnCreer.Size = new System.Drawing.Size(75, 23);
+            this.btnCreer.Size = new System.Drawing.Size(100, 28);
             this.btnCreer.TabIndex = 6;
             this.btnCreer.Text = "&Créer";
             this.btnCreer.UseVisualStyleBackColor = true;
@@ -111,9 +120,10 @@
             // tbxNom
             // 
             this.tbxNom.ForeColor = System.Drawing.Color.Gray;
-            this.tbxNom.Location = new System.Drawing.Point(126, 27);
+            this.tbxNom.Location = new System.Drawing.Point(168, 33);
+            this.tbxNom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxNom.Name = "tbxNom";
-            this.tbxNom.Size = new System.Drawing.Size(196, 20);
+            this.tbxNom.Size = new System.Drawing.Size(260, 22);
             this.tbxNom.TabIndex = 7;
             this.tbxNom.Text = "ex. : JAOUEN";
             this.tbxNom.Enter += new System.EventHandler(this.tbxNom_Enter);
@@ -122,9 +132,10 @@
             // tbxPrenom
             // 
             this.tbxPrenom.ForeColor = System.Drawing.Color.Gray;
-            this.tbxPrenom.Location = new System.Drawing.Point(126, 60);
+            this.tbxPrenom.Location = new System.Drawing.Point(168, 74);
+            this.tbxPrenom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxPrenom.Name = "tbxPrenom";
-            this.tbxPrenom.Size = new System.Drawing.Size(196, 20);
+            this.tbxPrenom.Size = new System.Drawing.Size(260, 22);
             this.tbxPrenom.TabIndex = 8;
             this.tbxPrenom.Text = "ex. : Yves";
             this.tbxPrenom.Enter += new System.EventHandler(this.tbxPrenom_Enter);
@@ -133,9 +144,10 @@
             // tbxAdresse
             // 
             this.tbxAdresse.ForeColor = System.Drawing.Color.Gray;
-            this.tbxAdresse.Location = new System.Drawing.Point(126, 90);
+            this.tbxAdresse.Location = new System.Drawing.Point(168, 111);
+            this.tbxAdresse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxAdresse.Name = "tbxAdresse";
-            this.tbxAdresse.Size = new System.Drawing.Size(196, 20);
+            this.tbxAdresse.Size = new System.Drawing.Size(260, 22);
             this.tbxAdresse.TabIndex = 9;
             this.tbxAdresse.Text = "ex. : 1 rue de Gouédic (sans de virgule)";
             this.tbxAdresse.Enter += new System.EventHandler(this.tbxAdresse_Enter);
@@ -144,9 +156,10 @@
             // tbxVille
             // 
             this.tbxVille.ForeColor = System.Drawing.Color.Gray;
-            this.tbxVille.Location = new System.Drawing.Point(126, 118);
+            this.tbxVille.Location = new System.Drawing.Point(168, 145);
+            this.tbxVille.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxVille.Name = "tbxVille";
-            this.tbxVille.Size = new System.Drawing.Size(196, 20);
+            this.tbxVille.Size = new System.Drawing.Size(260, 22);
             this.tbxVille.TabIndex = 10;
             this.tbxVille.Text = "ex. : Saint Brieuc";
             this.tbxVille.Enter += new System.EventHandler(this.tbxVille_Enter);
@@ -155,9 +168,10 @@
             // tbxCodePostal
             // 
             this.tbxCodePostal.ForeColor = System.Drawing.Color.Gray;
-            this.tbxCodePostal.Location = new System.Drawing.Point(126, 151);
+            this.tbxCodePostal.Location = new System.Drawing.Point(168, 186);
+            this.tbxCodePostal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxCodePostal.Name = "tbxCodePostal";
-            this.tbxCodePostal.Size = new System.Drawing.Size(196, 20);
+            this.tbxCodePostal.Size = new System.Drawing.Size(260, 22);
             this.tbxCodePostal.TabIndex = 11;
             this.tbxCodePostal.Text = "ex. : 22000";
             this.tbxCodePostal.Enter += new System.EventHandler(this.tbxCodePostal_Enter);
@@ -166,9 +180,10 @@
             // tbxEmail
             // 
             this.tbxEmail.ForeColor = System.Drawing.Color.Gray;
-            this.tbxEmail.Location = new System.Drawing.Point(126, 184);
+            this.tbxEmail.Location = new System.Drawing.Point(168, 226);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbxEmail.Name = "tbxEmail";
-            this.tbxEmail.Size = new System.Drawing.Size(196, 20);
+            this.tbxEmail.Size = new System.Drawing.Size(260, 22);
             this.tbxEmail.TabIndex = 12;
             this.tbxEmail.Text = "ex. : yves.jaouen@rabelais.fr";
             this.tbxEmail.Enter += new System.EventHandler(this.tbxEmail_Enter);
@@ -177,17 +192,38 @@
             // lblAvertissement
             // 
             this.lblAvertissement.AutoSize = true;
-            this.lblAvertissement.Location = new System.Drawing.Point(49, 272);
+            this.lblAvertissement.Location = new System.Drawing.Point(61, 350);
+            this.lblAvertissement.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvertissement.Name = "lblAvertissement";
-            this.lblAvertissement.Size = new System.Drawing.Size(264, 13);
+            this.lblAvertissement.Size = new System.Drawing.Size(334, 16);
             this.lblAvertissement.TabIndex = 13;
             this.lblAvertissement.Text = "A l\'exception du mail, tous les champs sont obligatoires";
             // 
+            // lblMdp
+            // 
+            this.lblMdp.AutoSize = true;
+            this.lblMdp.Location = new System.Drawing.Point(41, 262);
+            this.lblMdp.Name = "lblMdp";
+            this.lblMdp.Size = new System.Drawing.Size(89, 16);
+            this.lblMdp.TabIndex = 14;
+            this.lblMdp.Text = "Mot de passe";
+            // 
+            // tbxMdp
+            // 
+            this.tbxMdp.Location = new System.Drawing.Point(168, 262);
+            this.tbxMdp.Name = "tbxMdp";
+            this.tbxMdp.PasswordChar = '*';
+            this.tbxMdp.Size = new System.Drawing.Size(260, 22);
+            this.tbxMdp.TabIndex = 15;
+            this.tbxMdp.Leave += new System.EventHandler(this.tbxMdp_Leave);
+            // 
             // FormCreerClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 318);
+            this.ClientSize = new System.Drawing.Size(475, 391);
+            this.Controls.Add(this.tbxMdp);
+            this.Controls.Add(this.lblMdp);
             this.Controls.Add(this.lblAvertissement);
             this.Controls.Add(this.tbxEmail);
             this.Controls.Add(this.tbxCodePostal);
@@ -202,6 +238,7 @@
             this.Controls.Add(this.lblAdresse);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.lblNom);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCreerClient";
             this.Text = "Créer un Client";
             this.ResumeLayout(false);
@@ -225,5 +262,7 @@
         private System.Windows.Forms.TextBox tbxCodePostal;
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.Label lblAvertissement;
+        private System.Windows.Forms.Label lblMdp;
+        private System.Windows.Forms.TextBox tbxMdp;
     }
 }

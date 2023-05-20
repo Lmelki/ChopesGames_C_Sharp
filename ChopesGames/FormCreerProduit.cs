@@ -93,10 +93,10 @@ namespace ChopesGames
                 {
                     string requête;
                     maCnx.Open(); // on se connecte
-                    requête = "Insert into Produit(NOCATEGORIE,NOMARQUE,LIBELLE,DETAIL,PRIXHT,TAUXTVA) " +
-                        "values (@noCategorie,@noMarque,@libelle,@detail,@prixHT,@tauxTVA)";
+                    requête = "Insert into Produit(NOCATEGORIE,NOMARQUE,LIBELLE,DETAIL,PRIXHT,TAUXTVA,NOMIMAGE,QUANTITEENSTOCK,DATEAJOUT,DISPONIBLE,VITRINE) " +
+                        "values (@noCategorie,@noMarque,@libelle,@detail,@prixHT,@tauxTVA, @nomimage, @quantiteenstock, @dateajout, @disponible, @vitrine)";
                     var maCde = new MySqlCommand(requête, maCnx);
-                    maCde.Prepare();
+                    //maCde.Prepare();
 
                     int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
                     int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
@@ -106,7 +106,27 @@ namespace ChopesGames
                     maCde.Parameters.AddWithValue("@detail", tbxDetail.Text);
                     maCde.Parameters.AddWithValue("@prixHT", tbxPrixHT.Text);
                     maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
-                                        
+                    maCde.Parameters.AddWithValue("@nomimage", tbxNomImage.Text);
+                    maCde.Parameters.AddWithValue("@quantiteenstock", tbxQteStock);
+                    maCde.Parameters.AddWithValue("@dateajout", date.Text);
+                    if (radBtnDispoOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", "1");
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", "0");
+                    }
+
+                    if (radBtnVitOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", "1");
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", "0");
+                    }
+
                     int nbLigneAffectées = maCde.ExecuteNonQuery();
                     MessageBox.Show(nbLigneAffectées.ToString()+" produit(s) créé(s).", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
@@ -152,6 +172,8 @@ namespace ChopesGames
                 prixHTEstValide = false;
             }
         }
+
+
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {
             if (regexPrixHTTauxTVA.Match(tbxTauxTVA.Text).Success & tbxTauxTVA.Text != "")

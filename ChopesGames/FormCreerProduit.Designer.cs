@@ -41,126 +41,273 @@
             this.tbxPrixHT = new System.Windows.Forms.TextBox();
             this.tbxTauxTVA = new System.Windows.Forms.TextBox();
             this.btnCreer = new System.Windows.Forms.Button();
+            this.lblNomImage = new System.Windows.Forms.Label();
+            this.lblQuantiteStock = new System.Windows.Forms.Label();
+            this.lblDateAjout = new System.Windows.Forms.Label();
+            this.lblDisponible = new System.Windows.Forms.Label();
+            this.lblVitrine = new System.Windows.Forms.Label();
+            this.tbxNomImage = new System.Windows.Forms.TextBox();
+            this.tbxQteStock = new System.Windows.Forms.TextBox();
+            this.radBtnDispoOui = new System.Windows.Forms.RadioButton();
+            this.radBtnDispoNon = new System.Windows.Forms.RadioButton();
+            this.radBtnVitOui = new System.Windows.Forms.RadioButton();
+            this.radBtnVitNon = new System.Windows.Forms.RadioButton();
+            this.date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblCategorie
             // 
             this.lblCategorie.AutoSize = true;
-            this.lblCategorie.Location = new System.Drawing.Point(28, 47);
+            this.lblCategorie.Location = new System.Drawing.Point(37, 58);
+            this.lblCategorie.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCategorie.Name = "lblCategorie";
-            this.lblCategorie.Size = new System.Drawing.Size(52, 13);
+            this.lblCategorie.Size = new System.Drawing.Size(66, 16);
             this.lblCategorie.TabIndex = 0;
             this.lblCategorie.Text = "Catégorie";
             // 
             // lblMarque
             // 
             this.lblMarque.AutoSize = true;
-            this.lblMarque.Location = new System.Drawing.Point(28, 79);
+            this.lblMarque.Location = new System.Drawing.Point(37, 97);
+            this.lblMarque.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarque.Name = "lblMarque";
-            this.lblMarque.Size = new System.Drawing.Size(43, 13);
+            this.lblMarque.Size = new System.Drawing.Size(53, 16);
             this.lblMarque.TabIndex = 1;
             this.lblMarque.Text = "Marque";
             // 
             // lblLibelle
             // 
             this.lblLibelle.AutoSize = true;
-            this.lblLibelle.Location = new System.Drawing.Point(28, 118);
+            this.lblLibelle.Location = new System.Drawing.Point(37, 145);
+            this.lblLibelle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLibelle.Name = "lblLibelle";
-            this.lblLibelle.Size = new System.Drawing.Size(37, 13);
+            this.lblLibelle.Size = new System.Drawing.Size(47, 16);
             this.lblLibelle.TabIndex = 2;
             this.lblLibelle.Text = "Libellé";
             // 
             // lblDetail
             // 
             this.lblDetail.AutoSize = true;
-            this.lblDetail.Location = new System.Drawing.Point(28, 155);
+            this.lblDetail.Location = new System.Drawing.Point(37, 191);
+            this.lblDetail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetail.Name = "lblDetail";
-            this.lblDetail.Size = new System.Drawing.Size(34, 13);
+            this.lblDetail.Size = new System.Drawing.Size(42, 16);
             this.lblDetail.TabIndex = 3;
             this.lblDetail.Text = "Détail";
             // 
             // lblPrixHT
             // 
             this.lblPrixHT.AutoSize = true;
-            this.lblPrixHT.Location = new System.Drawing.Point(29, 296);
+            this.lblPrixHT.Location = new System.Drawing.Point(39, 364);
+            this.lblPrixHT.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPrixHT.Name = "lblPrixHT";
-            this.lblPrixHT.Size = new System.Drawing.Size(42, 13);
+            this.lblPrixHT.Size = new System.Drawing.Size(51, 16);
             this.lblPrixHT.TabIndex = 4;
             this.lblPrixHT.Text = "Prix HT";
             // 
             // lblTauxTVA
             // 
             this.lblTauxTVA.AutoSize = true;
-            this.lblTauxTVA.Location = new System.Drawing.Point(28, 326);
+            this.lblTauxTVA.Location = new System.Drawing.Point(37, 401);
+            this.lblTauxTVA.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTauxTVA.Name = "lblTauxTVA";
-            this.lblTauxTVA.Size = new System.Drawing.Size(55, 13);
+            this.lblTauxTVA.Size = new System.Drawing.Size(67, 16);
             this.lblTauxTVA.TabIndex = 5;
             this.lblTauxTVA.Text = "Taux TVA";
             // 
             // cmbCategorie
             // 
             this.cmbCategorie.FormattingEnabled = true;
-            this.cmbCategorie.Location = new System.Drawing.Point(153, 38);
+            this.cmbCategorie.Location = new System.Drawing.Point(204, 47);
+            this.cmbCategorie.Margin = new System.Windows.Forms.Padding(4);
             this.cmbCategorie.Name = "cmbCategorie";
-            this.cmbCategorie.Size = new System.Drawing.Size(147, 21);
+            this.cmbCategorie.Size = new System.Drawing.Size(195, 24);
             this.cmbCategorie.TabIndex = 6;
             // 
             // cmbMarque
             // 
             this.cmbMarque.FormattingEnabled = true;
-            this.cmbMarque.Location = new System.Drawing.Point(153, 71);
+            this.cmbMarque.Location = new System.Drawing.Point(204, 87);
+            this.cmbMarque.Margin = new System.Windows.Forms.Padding(4);
             this.cmbMarque.Name = "cmbMarque";
-            this.cmbMarque.Size = new System.Drawing.Size(147, 21);
+            this.cmbMarque.Size = new System.Drawing.Size(195, 24);
             this.cmbMarque.TabIndex = 7;
             // 
             // tbxLibelle
             // 
-            this.tbxLibelle.Location = new System.Drawing.Point(153, 118);
+            this.tbxLibelle.Location = new System.Drawing.Point(204, 145);
+            this.tbxLibelle.Margin = new System.Windows.Forms.Padding(4);
             this.tbxLibelle.Name = "tbxLibelle";
-            this.tbxLibelle.Size = new System.Drawing.Size(147, 20);
+            this.tbxLibelle.Size = new System.Drawing.Size(195, 22);
             this.tbxLibelle.TabIndex = 8;
-            
             // 
             // tbxDetail
             // 
-            this.tbxDetail.Location = new System.Drawing.Point(153, 155);
+            this.tbxDetail.Location = new System.Drawing.Point(204, 191);
+            this.tbxDetail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxDetail.Multiline = true;
             this.tbxDetail.Name = "tbxDetail";
-            this.tbxDetail.Size = new System.Drawing.Size(147, 116);
+            this.tbxDetail.Size = new System.Drawing.Size(195, 142);
             this.tbxDetail.TabIndex = 9;
-            
             // 
             // tbxPrixHT
             // 
-            this.tbxPrixHT.Location = new System.Drawing.Point(153, 289);
+            this.tbxPrixHT.Location = new System.Drawing.Point(204, 356);
+            this.tbxPrixHT.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPrixHT.Name = "tbxPrixHT";
-            this.tbxPrixHT.Size = new System.Drawing.Size(147, 20);
+            this.tbxPrixHT.Size = new System.Drawing.Size(195, 22);
             this.tbxPrixHT.TabIndex = 10;
             this.tbxPrixHT.Leave += new System.EventHandler(this.tbxPrixHT_Leave);
             // 
             // tbxTauxTVA
             // 
-            this.tbxTauxTVA.Location = new System.Drawing.Point(153, 326);
+            this.tbxTauxTVA.Location = new System.Drawing.Point(204, 401);
+            this.tbxTauxTVA.Margin = new System.Windows.Forms.Padding(4);
             this.tbxTauxTVA.Name = "tbxTauxTVA";
-            this.tbxTauxTVA.Size = new System.Drawing.Size(147, 20);
+            this.tbxTauxTVA.Size = new System.Drawing.Size(195, 22);
             this.tbxTauxTVA.TabIndex = 11;
             this.tbxTauxTVA.Leave += new System.EventHandler(this.tbxTauxTVA_Leave);
             // 
             // btnCreer
             // 
-            this.btnCreer.Location = new System.Drawing.Point(179, 365);
+            this.btnCreer.Location = new System.Drawing.Point(575, 356);
+            this.btnCreer.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreer.Name = "btnCreer";
-            this.btnCreer.Size = new System.Drawing.Size(121, 23);
+            this.btnCreer.Size = new System.Drawing.Size(161, 46);
             this.btnCreer.TabIndex = 12;
             this.btnCreer.Text = "Créer";
             this.btnCreer.UseVisualStyleBackColor = true;
             this.btnCreer.Click += new System.EventHandler(this.btnCreer_Click);
             // 
+            // lblNomImage
+            // 
+            this.lblNomImage.AutoSize = true;
+            this.lblNomImage.Location = new System.Drawing.Point(465, 54);
+            this.lblNomImage.Name = "lblNomImage";
+            this.lblNomImage.Size = new System.Drawing.Size(110, 16);
+            this.lblNomImage.TabIndex = 13;
+            this.lblNomImage.Text = "Nome de l\'image";
+            // 
+            // lblQuantiteStock
+            // 
+            this.lblQuantiteStock.AutoSize = true;
+            this.lblQuantiteStock.Location = new System.Drawing.Point(465, 93);
+            this.lblQuantiteStock.Name = "lblQuantiteStock";
+            this.lblQuantiteStock.Size = new System.Drawing.Size(109, 16);
+            this.lblQuantiteStock.TabIndex = 14;
+            this.lblQuantiteStock.Text = "Quantité en stock";
+            // 
+            // lblDateAjout
+            // 
+            this.lblDateAjout.AutoSize = true;
+            this.lblDateAjout.Location = new System.Drawing.Point(465, 145);
+            this.lblDateAjout.Name = "lblDateAjout";
+            this.lblDateAjout.Size = new System.Drawing.Size(79, 16);
+            this.lblDateAjout.TabIndex = 15;
+            this.lblDateAjout.Text = "Date d\'ajout";
+            // 
+            // lblDisponible
+            // 
+            this.lblDisponible.AutoSize = true;
+            this.lblDisponible.Location = new System.Drawing.Point(465, 236);
+            this.lblDisponible.Name = "lblDisponible";
+            this.lblDisponible.Size = new System.Drawing.Size(77, 16);
+            this.lblDisponible.TabIndex = 16;
+            this.lblDisponible.Text = "Disoinible ?";
+            // 
+            // lblVitrine
+            // 
+            this.lblVitrine.AutoSize = true;
+            this.lblVitrine.Location = new System.Drawing.Point(465, 278);
+            this.lblVitrine.Name = "lblVitrine";
+            this.lblVitrine.Size = new System.Drawing.Size(54, 16);
+            this.lblVitrine.TabIndex = 17;
+            this.lblVitrine.Text = "Vitrine ?";
+            // 
+            // tbxNomImage
+            // 
+            this.tbxNomImage.Location = new System.Drawing.Point(612, 48);
+            this.tbxNomImage.Name = "tbxNomImage";
+            this.tbxNomImage.Size = new System.Drawing.Size(219, 22);
+            this.tbxNomImage.TabIndex = 18;
+            // 
+            // tbxQteStock
+            // 
+            this.tbxQteStock.Location = new System.Drawing.Point(612, 91);
+            this.tbxQteStock.Name = "tbxQteStock";
+            this.tbxQteStock.Size = new System.Drawing.Size(219, 22);
+            this.tbxQteStock.TabIndex = 19;
+            // 
+            // radBtnDispoOui
+            // 
+            this.radBtnDispoOui.AutoSize = true;
+            this.radBtnDispoOui.Location = new System.Drawing.Point(612, 234);
+            this.radBtnDispoOui.Name = "radBtnDispoOui";
+            this.radBtnDispoOui.Size = new System.Drawing.Size(51, 20);
+            this.radBtnDispoOui.TabIndex = 20;
+            this.radBtnDispoOui.TabStop = true;
+            this.radBtnDispoOui.Text = "OUI";
+            this.radBtnDispoOui.UseVisualStyleBackColor = true;
+            // 
+            // radBtnDispoNon
+            // 
+            this.radBtnDispoNon.AutoSize = true;
+            this.radBtnDispoNon.Location = new System.Drawing.Point(716, 232);
+            this.radBtnDispoNon.Name = "radBtnDispoNon";
+            this.radBtnDispoNon.Size = new System.Drawing.Size(58, 20);
+            this.radBtnDispoNon.TabIndex = 21;
+            this.radBtnDispoNon.TabStop = true;
+            this.radBtnDispoNon.Text = "NON";
+            this.radBtnDispoNon.UseVisualStyleBackColor = true;
+            // 
+            // radBtnVitOui
+            // 
+            this.radBtnVitOui.AutoSize = true;
+            this.radBtnVitOui.Location = new System.Drawing.Point(612, 276);
+            this.radBtnVitOui.Name = "radBtnVitOui";
+            this.radBtnVitOui.Size = new System.Drawing.Size(51, 20);
+            this.radBtnVitOui.TabIndex = 22;
+            this.radBtnVitOui.TabStop = true;
+            this.radBtnVitOui.Text = "OUI";
+            this.radBtnVitOui.UseVisualStyleBackColor = true;
+            // 
+            // radBtnVitNon
+            // 
+            this.radBtnVitNon.AutoSize = true;
+            this.radBtnVitNon.Location = new System.Drawing.Point(716, 278);
+            this.radBtnVitNon.Name = "radBtnVitNon";
+            this.radBtnVitNon.Size = new System.Drawing.Size(58, 20);
+            this.radBtnVitNon.TabIndex = 23;
+            this.radBtnVitNon.TabStop = true;
+            this.radBtnVitNon.Text = "NON";
+            this.radBtnVitNon.UseVisualStyleBackColor = true;
+            // 
+            // date
+            // 
+            this.date.CustomFormat = "yyyy-MM-dd";
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date.Location = new System.Drawing.Point(612, 143);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(200, 22);
+            this.date.TabIndex = 24;
+            // 
             // FormCreerProduit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 426);
+            this.ClientSize = new System.Drawing.Size(882, 524);
+            this.Controls.Add(this.date);
+            this.Controls.Add(this.radBtnVitNon);
+            this.Controls.Add(this.radBtnVitOui);
+            this.Controls.Add(this.radBtnDispoNon);
+            this.Controls.Add(this.radBtnDispoOui);
+            this.Controls.Add(this.tbxQteStock);
+            this.Controls.Add(this.tbxNomImage);
+            this.Controls.Add(this.lblVitrine);
+            this.Controls.Add(this.lblDisponible);
+            this.Controls.Add(this.lblDateAjout);
+            this.Controls.Add(this.lblQuantiteStock);
+            this.Controls.Add(this.lblNomImage);
             this.Controls.Add(this.btnCreer);
             this.Controls.Add(this.tbxTauxTVA);
             this.Controls.Add(this.tbxPrixHT);
@@ -174,6 +321,7 @@
             this.Controls.Add(this.lblLibelle);
             this.Controls.Add(this.lblMarque);
             this.Controls.Add(this.lblCategorie);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCreerProduit";
             this.Text = "Créer un produit";
             this.Load += new System.EventHandler(this.FormCreerProduit_Load);
@@ -197,5 +345,17 @@
         private System.Windows.Forms.TextBox tbxPrixHT;
         private System.Windows.Forms.TextBox tbxTauxTVA;
         private System.Windows.Forms.Button btnCreer;
+        private System.Windows.Forms.Label lblNomImage;
+        private System.Windows.Forms.Label lblQuantiteStock;
+        private System.Windows.Forms.Label lblDateAjout;
+        private System.Windows.Forms.Label lblDisponible;
+        private System.Windows.Forms.Label lblVitrine;
+        private System.Windows.Forms.TextBox tbxNomImage;
+        private System.Windows.Forms.TextBox tbxQteStock;
+        private System.Windows.Forms.RadioButton radBtnDispoOui;
+        private System.Windows.Forms.RadioButton radBtnDispoNon;
+        private System.Windows.Forms.RadioButton radBtnVitOui;
+        private System.Windows.Forms.RadioButton radBtnVitNon;
+        private System.Windows.Forms.DateTimePicker date;
     }
 }
