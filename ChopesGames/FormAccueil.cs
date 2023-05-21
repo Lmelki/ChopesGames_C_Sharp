@@ -51,8 +51,13 @@ namespace ChopesGames
 
         private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormModifierProduit formModifierProduit = new FormModifierProduit();
-            formModifierProduit.ShowDialog();
+
+        }
+
+        private void miModifierProduit_Click(object sender, EventArgs e)
+        {
+            FormCatalogueProduits formCatalogueProduit = new FormCatalogueProduits();
+            formCatalogueProduit.ShowDialog();
         }
     }
 }

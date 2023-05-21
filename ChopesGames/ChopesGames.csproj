@@ -121,6 +121,12 @@
     <Compile Include="FormAPropos.Designer.cs">
       <DependentUpon>FormAPropos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCatalogueProduits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCatalogueProduits.Designer.cs">
+      <DependentUpon>FormCatalogueProduits.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreerClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAPropos.resx">
       <DependentUpon>FormAPropos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCatalogueProduits.resx">
+      <DependentUpon>FormCatalogueProduits.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreerClient.resx">
       <DependentUpon>FormCreerClient.cs</DependentUpon>

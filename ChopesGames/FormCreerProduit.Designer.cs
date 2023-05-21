@@ -50,9 +50,11 @@
             this.tbxQteStock = new System.Windows.Forms.TextBox();
             this.radBtnDispoOui = new System.Windows.Forms.RadioButton();
             this.radBtnDispoNon = new System.Windows.Forms.RadioButton();
-            this.radBtnVitOui = new System.Windows.Forms.RadioButton();
+            this.dateAjout = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.radBtnVitNon = new System.Windows.Forms.RadioButton();
-            this.date = new System.Windows.Forms.DateTimePicker();
+            this.radBtnVitOui = new System.Windows.Forms.RadioButton();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblCategorie
@@ -123,6 +125,7 @@
             this.cmbCategorie.Name = "cmbCategorie";
             this.cmbCategorie.Size = new System.Drawing.Size(195, 24);
             this.cmbCategorie.TabIndex = 6;
+            this.cmbCategorie.SelectedIndexChanged += new System.EventHandler(this.cmbCategorie_SelectedIndexChanged);
             // 
             // cmbMarque
             // 
@@ -218,7 +221,7 @@
             // lblVitrine
             // 
             this.lblVitrine.AutoSize = true;
-            this.lblVitrine.Location = new System.Drawing.Point(465, 278);
+            this.lblVitrine.Location = new System.Drawing.Point(465, 287);
             this.lblVitrine.Name = "lblVitrine";
             this.lblVitrine.Size = new System.Drawing.Size(54, 16);
             this.lblVitrine.TabIndex = 17;
@@ -260,45 +263,53 @@
             this.radBtnDispoNon.Text = "NON";
             this.radBtnDispoNon.UseVisualStyleBackColor = true;
             // 
-            // radBtnVitOui
+            // dateAjout
             // 
-            this.radBtnVitOui.AutoSize = true;
-            this.radBtnVitOui.Location = new System.Drawing.Point(612, 276);
-            this.radBtnVitOui.Name = "radBtnVitOui";
-            this.radBtnVitOui.Size = new System.Drawing.Size(51, 20);
-            this.radBtnVitOui.TabIndex = 22;
-            this.radBtnVitOui.TabStop = true;
-            this.radBtnVitOui.Text = "OUI";
-            this.radBtnVitOui.UseVisualStyleBackColor = true;
+            this.dateAjout.CustomFormat = "yyyy-MM-dd";
+            this.dateAjout.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateAjout.Location = new System.Drawing.Point(612, 143);
+            this.dateAjout.Name = "dateAjout";
+            this.dateAjout.Size = new System.Drawing.Size(200, 22);
+            this.dateAjout.TabIndex = 24;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radBtnVitNon);
+            this.panel1.Controls.Add(this.radBtnVitOui);
+            this.panel1.Location = new System.Drawing.Point(591, 269);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(279, 55);
+            this.panel1.TabIndex = 25;
             // 
             // radBtnVitNon
             // 
             this.radBtnVitNon.AutoSize = true;
-            this.radBtnVitNon.Location = new System.Drawing.Point(716, 278);
+            this.radBtnVitNon.Location = new System.Drawing.Point(125, 18);
             this.radBtnVitNon.Name = "radBtnVitNon";
             this.radBtnVitNon.Size = new System.Drawing.Size(58, 20);
-            this.radBtnVitNon.TabIndex = 23;
+            this.radBtnVitNon.TabIndex = 25;
             this.radBtnVitNon.TabStop = true;
             this.radBtnVitNon.Text = "NON";
             this.radBtnVitNon.UseVisualStyleBackColor = true;
             // 
-            // date
+            // radBtnVitOui
             // 
-            this.date.CustomFormat = "yyyy-MM-dd";
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date.Location = new System.Drawing.Point(612, 143);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(200, 22);
-            this.date.TabIndex = 24;
+            this.radBtnVitOui.AutoSize = true;
+            this.radBtnVitOui.Location = new System.Drawing.Point(21, 18);
+            this.radBtnVitOui.Name = "radBtnVitOui";
+            this.radBtnVitOui.Size = new System.Drawing.Size(51, 20);
+            this.radBtnVitOui.TabIndex = 24;
+            this.radBtnVitOui.TabStop = true;
+            this.radBtnVitOui.Text = "OUI";
+            this.radBtnVitOui.UseVisualStyleBackColor = true;
             // 
             // FormCreerProduit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 524);
-            this.Controls.Add(this.date);
-            this.Controls.Add(this.radBtnVitNon);
-            this.Controls.Add(this.radBtnVitOui);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dateAjout);
             this.Controls.Add(this.radBtnDispoNon);
             this.Controls.Add(this.radBtnDispoOui);
             this.Controls.Add(this.tbxQteStock);
@@ -323,8 +334,11 @@
             this.Controls.Add(this.lblCategorie);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCreerProduit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Créer un produit";
             this.Load += new System.EventHandler(this.FormCreerProduit_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,24 +352,25 @@
         private System.Windows.Forms.Label lblDetail;
         private System.Windows.Forms.Label lblPrixHT;
         private System.Windows.Forms.Label lblTauxTVA;
-        private System.Windows.Forms.ComboBox cmbCategorie;
-        private System.Windows.Forms.ComboBox cmbMarque;
-        private System.Windows.Forms.TextBox tbxLibelle;
-        private System.Windows.Forms.TextBox tbxDetail;
-        private System.Windows.Forms.TextBox tbxPrixHT;
-        private System.Windows.Forms.TextBox tbxTauxTVA;
-        private System.Windows.Forms.Button btnCreer;
         private System.Windows.Forms.Label lblNomImage;
         private System.Windows.Forms.Label lblQuantiteStock;
         private System.Windows.Forms.Label lblDateAjout;
         private System.Windows.Forms.Label lblDisponible;
         private System.Windows.Forms.Label lblVitrine;
-        private System.Windows.Forms.TextBox tbxNomImage;
-        private System.Windows.Forms.TextBox tbxQteStock;
-        private System.Windows.Forms.RadioButton radBtnDispoOui;
-        private System.Windows.Forms.RadioButton radBtnDispoNon;
-        private System.Windows.Forms.RadioButton radBtnVitOui;
-        private System.Windows.Forms.RadioButton radBtnVitNon;
-        private System.Windows.Forms.DateTimePicker date;
+        public System.Windows.Forms.ComboBox cmbCategorie;
+        public System.Windows.Forms.ComboBox cmbMarque;
+        public System.Windows.Forms.TextBox tbxLibelle;
+        public System.Windows.Forms.TextBox tbxDetail;
+        public System.Windows.Forms.TextBox tbxPrixHT;
+        public System.Windows.Forms.TextBox tbxTauxTVA;
+        public System.Windows.Forms.Button btnCreer;
+        public System.Windows.Forms.TextBox tbxNomImage;
+        public System.Windows.Forms.TextBox tbxQteStock;
+        public System.Windows.Forms.RadioButton radBtnDispoOui;
+        public System.Windows.Forms.RadioButton radBtnDispoNon;
+        public System.Windows.Forms.DateTimePicker dateAjout;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.RadioButton radBtnVitNon;
+        public System.Windows.Forms.RadioButton radBtnVitOui;
     }
 }

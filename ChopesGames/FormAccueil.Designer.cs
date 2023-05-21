@@ -102,6 +102,7 @@
             this.miModifierProduit.Name = "miModifierProduit";
             this.miModifierProduit.Size = new System.Drawing.Size(224, 26);
             this.miModifierProduit.Text = "Produit";
+            this.miModifierProduit.Click += new System.EventHandler(this.miModifierProduit_Click);
             // 
             // listerToolStripMenuItem
             // 
@@ -144,7 +145,7 @@
             this.Controls.Add(this.msCreer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.msCreer;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAccueil";
             this.Text = "Accueil";
             this.msCreer.ResumeLayout(false);
