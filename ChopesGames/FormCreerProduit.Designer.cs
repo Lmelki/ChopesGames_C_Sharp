@@ -135,6 +135,7 @@
             this.cmbMarque.Name = "cmbMarque";
             this.cmbMarque.Size = new System.Drawing.Size(195, 24);
             this.cmbMarque.TabIndex = 7;
+            this.cmbMarque.SelectedIndexChanged += new System.EventHandler(this.cmbMarque_SelectedIndexChanged);
             // 
             // tbxLibelle
             // 

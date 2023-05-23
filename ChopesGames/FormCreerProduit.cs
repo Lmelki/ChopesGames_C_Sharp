@@ -19,15 +19,14 @@ namespace ChopesGames
         public FormCreerProduit()
         {
             InitializeComponent();
-            maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
         }
         
         private void FormCreerProduit_Load(object sender, EventArgs e)
         {
-            maCnx.Close();
             // Chargement des catégories dans cmbCategorie
             try
             {
+                maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
                 maCnx.Open();
                 string requete = "Select * from Categorie";
                 MySqlCommand cmd = new MySqlCommand(requete, maCnx);
@@ -36,10 +35,6 @@ namespace ChopesGames
                 while (red.Read())
                 {
                     cmbCategorie.Items.Add(red["LIBELLE"]);
-                }
-                if (cmbCategorie.Items.Count != 0)
-                {
-                    cmbCategorie.SelectedIndex = 0;
                 }
                 maCnx.Close();
                 maCnx.Dispose();
@@ -53,7 +48,8 @@ namespace ChopesGames
 
             try
             {
-                //maCnx.Open();
+                MySqlConnection maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
+                maCnx.Open();
                 string requete = "Select * from Marque";
                 MySqlCommand cmd = new MySqlCommand(requete, maCnx);
                 MySqlDataReader red = cmd.ExecuteReader();
@@ -62,10 +58,6 @@ namespace ChopesGames
                 {
                     cmbMarque.Items.Add(red["NOM"]);
                 }
-                if (cmbMarque.Items.Count != 0)
-                {
-                    cmbMarque.SelectedIndex = 0;
-                }
                 maCnx.Close();
                 maCnx.Dispose();
             }
@@ -73,72 +65,12 @@ namespace ChopesGames
             {
                 MessageBox.Show(ex.ToString());
             }
-            // Chargement des catégories dans cmbCategorie
-            //try
-            //{
-            //    string requête;
-            //    int noCategorie;
-            //    string libelle;
-            //    MySqlDataReader jeuEnr = null;
-            //    maCnx.Open(); // on se connecte
-            //    requête = "Select * from Categorie";
-            //    var maCde = new MySqlCommand(requête, maCnx);
-            //    jeuEnr = maCde.ExecuteReader();
-
-            //    while (jeuEnr.Read())
-            //    {
-            //        noCategorie = jeuEnr.GetInt32("NOCATEGORIE");
-            //        libelle = jeuEnr.GetString("LIBELLE");
-            //        cmbCategorie.Items.Add(new Categorie(noCategorie, libelle));
-            //    }
-            //}
-            //catch (MySqlException erreur)
-            //{
-            //    MessageBox.Show("Erreur chargement catégories : " + erreur.ToString());
-            //}
-            //finally
-            //{
-            //    if (maCnx is object & maCnx.State == ConnectionState.Open)
-            //    {
-            //        maCnx.Close(); // on se déconnecte
-            //    }
-            //}
-
-            //// Chargement des marques dans cmbMarque
-            //try
-            //{
-            //    string requête;
-            //    int noMarque;
-            //    string nom;
-            //    MySqlDataReader jeuEnr = null;
-            //    maCnx.Open(); // on se connecte
-            //    requête = "Select * from Marque";
-            //    var maCde = new MySqlCommand(requête, maCnx);
-            //    jeuEnr = maCde.ExecuteReader();
-
-            //    while (jeuEnr.Read())
-            //    {
-            //        noMarque = jeuEnr.GetInt32("NOMARQUE");
-            //        nom = jeuEnr.GetString("NOM");
-            //        cmbMarque.Items.Add(new Marque(noMarque, nom));
-            //    }
-            //}
-            //catch (MySqlException erreur)
-            //{
-            //    MessageBox.Show("Erreur chargement marques : " + erreur.ToString());
-            //}
-            //finally
-            //{
-            //    if (maCnx is object & maCnx.State == ConnectionState.Open)
-            //    {
-            //        maCnx.Close(); // on se déconnecte
-            //    }
-            //}
-
         }
 
         private void btnCreer_Click(object sender, EventArgs e)
         {
+            MySqlConnection maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
+
             if (mode == "Ajouter")
             { 
                 if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object &&
@@ -153,10 +85,8 @@ namespace ChopesGames
                         var maCde = new MySqlCommand(requête, maCnx);
                         //maCde.Prepare();
 
-                        int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
-                        int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
-                        maCde.Parameters.AddWithValue("@noCategorie", noCategorie);
-                        maCde.Parameters.AddWithValue("@noMarque", noMarque);
+                        maCde.Parameters.AddWithValue("@noCategorie", getNocat(cmbCategorie.Text));
+                        maCde.Parameters.AddWithValue("@noMarque", getNoMarque(cmbMarque.Text));
                         maCde.Parameters.AddWithValue("@libelle", tbxLibelle.Text);
                         maCde.Parameters.AddWithValue("@detail", tbxDetail.Text);
                         maCde.Parameters.AddWithValue("@prixHT", tbxPrixHT.Text);
@@ -210,55 +140,58 @@ namespace ChopesGames
                 }
             } else
             {
-            //    if (mode == "Modifier")
-            //    {
-            //        if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object &&
-            //            prixHTEstValide && tauxTVAEstValide)
-            //        {
-            //            try
-            //            {
-            //            }catch { }
-            //        }
-            //    }
-            //                string requête;
-            //    maCnx.Open(); // on se connecte
-            //    requête = "update Produit set NOCATEGORIE=@noCategorie,NOMARQUE=@noMarque,LIBELLE=@libelle,DETAIL=@detail,PRIXHT=@prixHT," +
-            //        "TAUXTVA=@tauxTVA,NOMIMAGE=@nomimage,QUANTITEENSTOCK=@quantiteenstock,DATEAJOUT=@dateajout,DISPONIBLE=@disponible,VITRINE=@vitrine " +
-            //        "where NOPRODUIT=@noproduit";
-            //    var maCde = new MySqlCommand(requête, maCnx);
-            //    //maCde.Prepare();
+                //    if (mode == "Modifier")
+                //    {
+                //        if (cmbCategorie.SelectedItem is object && cmbMarque.SelectedItem is object &&
+                //            prixHTEstValide && tauxTVAEstValide)
+                //        {
+                try
+                {
+                    string requête;
+                    maCnx.Open(); // on se connecte
+                    requête = "update Produit set NOCATEGORIE=@noCategorie,NOMARQUE=@noMarque,LIBELLE=@libelle,DETAIL=@detail,PRIXHT=@prixHT,TAUXTVA=@tauxTVA,NOMIMAGE=@nomimage,QUANTITEENSTOCK=@quantiteenstock,DATEAJOUT=@dateajout,DISPONIBLE=@disponible,VITRINE=@vitrine where NOPRODUIT=@noproduit";
+                    var maCde = new MySqlCommand(requête, maCnx);
+                    maCde.Parameters.AddWithValue("@noCategorie", getNocat(cmbCategorie.Text));//noCategorie
+                    maCde.Parameters.AddWithValue("@noMarque", getNoMarque(cmbMarque.Text));//noMarque
+                    maCde.Parameters.AddWithValue("@libelle", tbxLibelle.Text);
+                    maCde.Parameters.AddWithValue("@detail", tbxDetail.Text);
+                    maCde.Parameters.AddWithValue("@prixHT", tbxPrixHT.Text);
+                    maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
+                    maCde.Parameters.AddWithValue("@nomimage", tbxNomImage.Text);
+                    maCde.Parameters.AddWithValue("@quantiteenstock", tbxQteStock);
+                    maCde.Parameters.AddWithValue("@dateajout", dateAjout.Text);
+                    if (radBtnDispoOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", "1");
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@disponible", "0");
+                    }
 
-            //    int noCategorie = ((Categorie)(cmbCategorie.SelectedItem)).GetNoCategorie();
-            //    int noMarque = ((Marque)(cmbMarque.SelectedItem)).GetNoMarque();
-            //    maCde.Parameters.AddWithValue("@noCategorie", noCategorie);
-            //    maCde.Parameters.AddWithValue("@noMarque", noMarque);
-            //    maCde.Parameters.AddWithValue("@libelle", tbxLibelle.Text);
-            //    maCde.Parameters.AddWithValue("@detail", tbxDetail.Text);
-            //    maCde.Parameters.AddWithValue("@prixHT", tbxPrixHT.Text);
-            //    maCde.Parameters.AddWithValue("@tauxTVA", tbxTauxTVA.Text);
-            //    maCde.Parameters.AddWithValue("@nomimage", tbxNomImage.Text);
-            //    maCde.Parameters.AddWithValue("@quantiteenstock", tbxQteStock);
-            //    maCde.Parameters.AddWithValue("@dateajout", dateAjout.Text);
-            //    if (radBtnDispoOui.Checked == true)
-            //    {
-            //        maCde.Parameters.AddWithValue("@disponible", "1");
-            //    }
-            //    else
-            //    {
-            //        maCde.Parameters.AddWithValue("@disponible", "0");
-            //    }
+                    if (radBtnVitOui.Checked == true)
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", "1");
+                    }
+                    else
+                    {
+                        maCde.Parameters.AddWithValue("@vitrine", "0");
+                    }
+                    maCde.Parameters.AddWithValue("@noproduit", idProduit);
+                    int nbLigneAffectées = maCde.ExecuteNonQuery();
+                    maCnx.Close();
+                    maCnx.Dispose();
+                    MessageBox.Show(nbLigneAffectées.ToString() + " produit modifié.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch
+                {
 
-            //    if (radBtnVitOui.Checked == true)
-            //    {
-            //        maCde.Parameters.AddWithValue("@vitrine", "1");
-            //    }
-            //    else
-            //    {
-            //        maCde.Parameters.AddWithValue("@vitrine", "0");
-            //    }
-
-            //    int nbLigneAffectées = maCde.ExecuteNonQuery();
-            //    MessageBox.Show(nbLigneAffectées.ToString() + " produit modifié.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Saisie incomplète ou incorrecte.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
 
             }
 
@@ -281,28 +214,6 @@ namespace ChopesGames
             }
         }
 
-        public string noCat = "";
-
-        public string getNocat(string libelle)
-        {
-            maCnx.Open();
-            string sql = "select * from Categorie where LIBELLE = '" + libelle + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, maCnx);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                noCat = reader["NOCATEGORIE"].ToString();
-            }
-            maCnx.Close();
-            maCnx.Dispose();
-            return noCat;
-        }
-        private void cmbCategorie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string noCategorie = getNocat(cmbCategorie.Text);
-            MessageBox.Show(noCategorie);
-        }
-
         private void tbxTauxTVA_Leave(object sender, EventArgs e)
         {
             if (regexPrixHTTauxTVA.Match(tbxTauxTVA.Text).Success & tbxTauxTVA.Text != "")
@@ -316,5 +227,51 @@ namespace ChopesGames
                 tauxTVAEstValide = false;
             }
         }
+
+        public string noCat = "";
+        public string noMarque = "";
+
+        public string getNocat(string libelle)
+        {
+            MySqlConnection maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
+            maCnx.Open();
+            string sql = "select * from Categorie where LIBELLE = '" + libelle + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, maCnx);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                noCat = reader["NOCATEGORIE"].ToString();
+            }
+            maCnx.Close();
+            maCnx.Dispose();
+            return noCat;
+        }
+
+        public string getNoMarque(string libelle)
+        {
+            MySqlConnection maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
+            maCnx.Open();
+            string sql = "select * from marque where NOM = '" + libelle + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, maCnx);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                noMarque = reader["NOMARQUE"].ToString();
+            }
+            maCnx.Close();
+            maCnx.Dispose();
+            return noMarque;
+        }
+
+        private void cmbMarque_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string noMarque = getNoMarque(cmbMarque.Text);
+        }
+
+        private void cmbCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string noCategorie = getNocat(cmbCategorie.Text);
+        }
+
     }
 }
