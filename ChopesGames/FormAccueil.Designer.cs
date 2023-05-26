@@ -34,10 +34,11 @@
             this.miCreerClient = new System.Windows.Forms.ToolStripMenuItem();
             this.miCreerProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.miCreerCommande = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModifierProd = new System.Windows.Forms.ToolStripMenuItem();
             this.miModifierProduit = new System.Windows.Forms.ToolStripMenuItem();
             this.listerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miListerCommandes = new System.Windows.Forms.ToolStripMenuItem();
+            this.miListerProduits = new System.Windows.Forms.ToolStripMenuItem();
             this.aProposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miAProposDeSpaceBoutique = new System.Windows.Forms.ToolStripMenuItem();
             this.msCreer.SuspendLayout();
@@ -48,7 +49,7 @@
             this.msCreer.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.msCreer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.creerToolStripMenuItem,
-            this.modifierToolStripMenuItem,
+            this.btnModifierProd,
             this.listerToolStripMenuItem,
             this.aProposToolStripMenuItem});
             this.msCreer.Location = new System.Drawing.Point(0, 0);
@@ -88,14 +89,13 @@
             this.miCreerCommande.Text = "Commande";
             this.miCreerCommande.Click += new System.EventHandler(this.miCreerCommande_Click);
             // 
-            // modifierToolStripMenuItem
+            // btnModifierProd
             // 
-            this.modifierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnModifierProd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miModifierProduit});
-            this.modifierToolStripMenuItem.Name = "modifierToolStripMenuItem";
-            this.modifierToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.modifierToolStripMenuItem.Text = "Modifier";
-            this.modifierToolStripMenuItem.Click += new System.EventHandler(this.modifierToolStripMenuItem_Click);
+            this.btnModifierProd.Name = "btnModifierProd";
+            this.btnModifierProd.Size = new System.Drawing.Size(80, 24);
+            this.btnModifierProd.Text = "Modifier";
             // 
             // miModifierProduit
             // 
@@ -107,7 +107,8 @@
             // listerToolStripMenuItem
             // 
             this.listerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miListerCommandes});
+            this.miListerCommandes,
+            this.miListerProduits});
             this.listerToolStripMenuItem.Name = "listerToolStripMenuItem";
             this.listerToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.listerToolStripMenuItem.Text = "Lister";
@@ -118,6 +119,13 @@
             this.miListerCommandes.Size = new System.Drawing.Size(175, 26);
             this.miListerCommandes.Text = "Commandes";
             this.miListerCommandes.Click += new System.EventHandler(this.miListerCommandes_Click);
+            // 
+            // miListerProduits
+            // 
+            this.miListerProduits.Name = "miListerProduits";
+            this.miListerProduits.Size = new System.Drawing.Size(175, 26);
+            this.miListerProduits.Text = "Produits";
+            this.miListerProduits.Click += new System.EventHandler(this.miListerProduits_Click);
             // 
             // aProposToolStripMenuItem
             // 
@@ -162,12 +170,13 @@
         private System.Windows.Forms.ToolStripMenuItem miCreerClient;
         private System.Windows.Forms.ToolStripMenuItem miCreerProduit;
         private System.Windows.Forms.ToolStripMenuItem miCreerCommande;
-        private System.Windows.Forms.ToolStripMenuItem modifierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnModifierProd;
         private System.Windows.Forms.ToolStripMenuItem miModifierProduit;
         private System.Windows.Forms.ToolStripMenuItem listerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miListerCommandes;
         private System.Windows.Forms.ToolStripMenuItem aProposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem miAProposDeSpaceBoutique;
+        private System.Windows.Forms.ToolStripMenuItem miListerProduits;
     }
 }
 

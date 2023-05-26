@@ -4,6 +4,7 @@ using System.Data;
 using System.Drawing; // pour SystemColors
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ChopesGames
 {
@@ -29,6 +30,7 @@ namespace ChopesGames
                 string nom, prenom, adresse, ville;
                 int codePostal;
                 string email;
+                string motdepasse;
                 MySqlDataReader jeuEnr = null;
                 sqlcon.Open();
                 var maCde = new MySqlCommand("Select * from Client", sqlcon);
@@ -42,7 +44,8 @@ namespace ChopesGames
                     ville = jeuEnr.GetString("VILLE");
                     codePostal = jeuEnr.GetInt32("CODEPOSTAL");
                     email = jeuEnr.GetString("EMAIL");
-                    cmbClient.Items.Add(new Client(noClient, nom, prenom, adresse, ville, codePostal, email));
+                    motdepasse = jeuEnr.GetString("MOTDEPASSE");
+                    cmbClient.Items.Add(new Client(noClient, nom, prenom, adresse, ville, codePostal, email, motdepasse));
                 }
             }
             catch (MySqlException erreur)
@@ -60,9 +63,10 @@ namespace ChopesGames
             // Chargement des produits dans cmbProduit
             try
             {
-                int noProduit;
-                string libelle;
+                int noProduit, noCategorie, noMarque, quantiteEnStock, vitrine, disponibilite;
+                string libelle, detail, nomImage;
                 double prixHT, tauxTVA;
+                DateTime dateAjout;
                 MySqlDataReader jeuEnr = null;
                 sqlcon.Open();
                 string requete = "Select NOPRODUIT, LIBELLE, PRIXHT, TAUXTVA FROM produit ORDER BY NOPRODUIT";
@@ -71,10 +75,18 @@ namespace ChopesGames
                 while (jeuEnr.Read())
                 {
                     noProduit = jeuEnr.GetInt32("NOPRODUIT");
+                    noCategorie = jeuEnr.GetInt32("NOCATEGORIE");
+                    noMarque = jeuEnr.GetInt32("NOMARQUE");
+                    quantiteEnStock = jeuEnr.GetInt32("QUANTITEENSTOCK");
                     libelle = jeuEnr.GetString("LIBELLE");
+                    detail = jeuEnr.GetString("DETAIL");
+                    nomImage = jeuEnr.GetString("NOMIMAGE");
                     prixHT = jeuEnr.GetDouble("PRIXHT");
                     tauxTVA = jeuEnr.GetDouble("TAUXTVA");
-                    cmbProduit.Items.Add(new Produit(noProduit, libelle, prixHT, tauxTVA));
+                    disponibilite = jeuEnr.GetInt32("DISPONIBLE");
+                    vitrine = jeuEnr.GetInt32("VITRINE");
+                    dateAjout = jeuEnr.GetDateTime("DATEAJOUT").Date;
+                    cmbProduit.Items.Add(new Produit(noProduit, noCategorie, noMarque, quantiteEnStock, libelle, detail, nomImage, prixHT, tauxTVA, disponibilite, vitrine, dateAjout));
                 }
             }
             catch (MySqlException erreur)

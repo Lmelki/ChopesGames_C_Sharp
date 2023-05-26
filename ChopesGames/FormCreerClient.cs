@@ -27,7 +27,7 @@ namespace ChopesGames
             MySqlConnection maCnx; // ! déclaration avant le bloc Try
             maCnx = new MySqlConnection("SERVER=127.0.0.1; DATABASE=ppe_chopesgames; UID=root; PASSWORD=; Convert Zero Datetime = true;");
             if (nomEstValide && prenomEstValide && adresseEstValide && villeEstValide
-                && codePostalEstValide && emailEstValide)
+                && codePostalEstValide && emailEstValide && mdpEstValide)
             {
                 try
                 {

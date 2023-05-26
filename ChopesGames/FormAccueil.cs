@@ -49,12 +49,14 @@ namespace ChopesGames
             formAPropos.ShowDialog();
         }
 
-        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void miModifierProduit_Click(object sender, EventArgs e)
+        {
+            FormModifierProduit formModifierProduit = new FormModifierProduit(); 
+            formModifierProduit.ShowDialog();
+        }
+
+        private void miListerProduits_Click(object sender, EventArgs e)
         {
             FormCatalogueProduits formCatalogueProduit = new FormCatalogueProduits();
             formCatalogueProduit.ShowDialog();
